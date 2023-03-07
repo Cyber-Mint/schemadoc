@@ -5,15 +5,17 @@ services:
   schemadoc:
     build: .
     container_name: schemadoc
-    ports:
-     - "127.0.0.1:80:80"
+    # ports:
+    #  - "127.0.0.1:80:80"
     entrypoint: /bin/sh -c "/src/generate.sh"
     volumes:
       - ../generate.sh:/src/generate.sh
       - ../outputs:/outputs 
     environment:
-      - DB_NAME=teamfu
-      - DB_PASSWORD=$POSTGRES_PASSWORD
-      - DB_PORT=5432
-      - DB_USER=postgres
-      - DB_HOST=127.0.0.1
+      - DB_NAME=${DB_NAME:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_USER=${DB_USER:-postgres}
+      - DB_HOST=${DB_HOST:-127.0.0.1}
+      - DB_TYPE=${DB_TYPE:-postgres}
+    network_mode: host
