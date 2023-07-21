@@ -1,8 +1,8 @@
 # schemadoc
-An example og how to generate useful schema documentation 
+An example of how to generate useful schema documentation 
 
 
-talk about  network_mode: host
+> Todo: add info about network_mode: host
 
 ### Quickstart
 ```sh
