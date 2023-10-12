@@ -15,5 +15,5 @@ $ docker-compose up
 $ pg_dump -h ${DB_DB_HOST} -p ${DB_PORT} --dbname=${DB_NAME} -U ${DB_USER} --schema-only > schema_dump.sql
 $ docker exec -it postgresql /bin/sh -c "psql -h 127.0.0.1 -U postgres -p 5432 -d postgres -W -c 'DROP DATABASE IF EXISTS <your-database-name>;'"
 $ docker exec -it postgresql /bin/sh -c "psql -h 127.0.0.1 -U postgres -p 5432 -d postgres -W -c 'CREATE DATABASE <your-database-name>;'"
-$ PGPASSWORD=${POSTGRES_PASSWORD} psql --dbname=${DB_NAME} -p ${DB_PORT} -U ${DB_USER} -h ${DB_DB_HOST} < schema_dump.sql
+$ PGPASSWORD=${DB_PASSWORD} psql --dbname=${DB_NAME} -p ${DB_PORT} -U ${DB_USER} -h ${DB_HOST} < schema_dump.sql
 ```
